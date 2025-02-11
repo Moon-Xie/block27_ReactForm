@@ -12,10 +12,11 @@ export default function SignUpForm({token,setToken}) {
                 method: "POST",
                 body: JSON.stringify(setUsername(username), setPassword(password))
             })
-            const result = response.json();
+            const result = await response.json();
             console.log(result)
             setToken(result.token)
-
+            setUsername("")
+            setPassword("")
         } catch (error) {
             setError(error.message)
         }
